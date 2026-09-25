@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f6f8">
+    <meta name="description"
+        content="Discover independent local businesses, services, and professionals across New England.">
+    <title>Find Local Businesses Near You | Near & Here</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="theme.css">
+    <script src="app.js" defer></script>
+</head>
+
+<body>
+    <header class="site-header" id="top">
+        <div class="shell header-inner">
+            <a class="brand" href="#home" aria-label="Near and Here home"><span class="brand-mark">N<span
+                        class="brand-dot">.</span></span><span>near <em>&</em> here</span></a>
+            <nav class="desktop-nav" aria-label="Main navigation">
+                <a href="#home">Home</a><a href="#find">Find Businesses</a><a href="#categories">Categories</a><a
+                    href="#locations">Cities</a><a href="#about">About</a><a href="#contact">Contact</a>
+            </nav>
+            <div class="header-actions"><a class="header-cta" href="#add">Add your business <span
+                        aria-hidden="true">↗</span></a><button class="menu-toggle icon-button" id="menu-toggle"
+                    type="button" aria-label="Open menu" aria-expanded="false"><span>☰</span></button></div>
+        </div>
+        <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden><a href="#home">Home</a><a
+                href="#find">Find Businesses</a><a href="#categories">Categories</a><a href="#locations">Cities</a><a
+                href="#about">About</a><a href="#add">Add Your Business</a><a href="#contact">Contact</a></nav>
+    </header>
+
+    <main>
+        <div id="home-view">
+            <section class="hero" id="home">
+                <div class="hero-image" aria-hidden="true"></div>
+                <div class="shell hero-content">
+                    <div class="hero-copy"><span class="eyebrow light"><span class="eyebrow-line"></span> YOUR
+                            COMMUNITY, CLOSER</span>
+                        <h1>Find Local Businesses<br><i>Near You.</i></h1>
+                        <p>Discover trusted local businesses, services, and professionals in your community.</p>
+                    </div>
+                    <form class="search-panel" id="hero-search">
+                        <div class="search-panel-top"><span class="search-panel-title">What are you looking
+                                for?</span><button type="button" class="location-link" data-near-me><span class="symbol"
+                                    aria-hidden="true">⌖</span> Use my location</button></div>
+                        <div class="search-fields"><label class="field"><span>STATE</span><select name="state"
+                                    data-state>
+                                    <option value="">Select State</option>
+                                </select></label><label class="field"><span>CITY / TOWN</span><input name="city"
+                                    type="search" placeholder="Enter city or town" list="city-options"
+                                    autocomplete="address-level2"></label><label
+                                class="field distance-field"><span>DISTANCE</span><select name="distance">
+                                    <option value="">Any distance</option>
+                                    <option value="5">Within 5 miles</option>
+                                    <option value="10">Within 10 miles</option>
+                                    <option value="25">Within 25 miles</option>
+                                    <option value="50">Within 50 miles</option>
+                                    <option value="100">Within 100 miles</option>
+                                    <option value="100+">100+ miles</option>
+                                </select></label><label class="field"><span>BUSINESS TYPE</span><input name="category"
+                                    type="search" placeholder="All categories" list="category-options"></label><label
+                                class="field"><span>LANGUAGE</span><input name="language" type="search"
+                                    placeholder="Any language" list="language-options"></label><button
+                                class="search-button" type="submit"><span class="search-glyph"
+                                    aria-hidden="true">⌕</span> Search Businesses</button></div>
+                    </form>
+                    <div class="hero-foot"><span class="hero-sparkle" aria-hidden="true">✳</span> Good things are closer
+                        than you think. <button type="button" data-near-me>Explore businesses near me <span
+                                aria-hidden="true">→</span></button></div>
+                </div>
+            </section>
+
+            <section class="category-section section-pad" id="categories">
+                <div class="shell">
+                    <div class="section-heading">
+                        <div><span class="eyebrow">START SOMEWHERE GOOD</span>
+                            <h2>Explore by category<span class="accent-dot">.</span></h2>
+                            <p>Whatever you need, there’s someone local who does it well.</p>
+                        </div><a href="#find" class="text-link">Explore all businesses <span
+                                aria-hidden="true">↗</span></a>
+                    </div>
+                    <div class="category-grid" id="category-grid"></div>
+                </div>
+            </section>
+
+            <section class="featured-section section-pad" id="featured">
+                <div class="shell">
+                    <div class="section-heading">
+                        <div><span class="eyebrow">THE NEIGHBORHOOD EDIT</span>
+                            <h2>Meet your local favorites<span class="accent-dot">.</span></h2>
+                            <p>Independent businesses making their communities brighter.</p>
+                        </div><a href="#find" class="text-link">View all businesses <span
+                                aria-hidden="true">↗</span></a>
+                    </div>
+                    <div class="featured-grid" id="featured-grid"></div>
+                </div>
+            </section>
+
+            <section class="locations-section section-pad" id="locations">
+                <div class="shell locations-layout">
+                    <div><span class="eyebrow">PLACES TO EXPLORE</span>
+                        <h2>Every place has<br>a story<span class="accent-dot">.</span></h2>
+                        <p>Find the people and places that make a neighborhood feel like yours, wherever you are.</p>
+                        <div class="location-tags" id="location-tags"></div><a href="#find" class="text-link">Browse
+                            New England <span aria-hidden="true">↗</span></a>
+                    </div>
+                    <div class="location-art"><img
+                            src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&q=85"
+                            alt="Warmly lit independent neighborhood shop" loading="lazy">
+                        <div class="location-sticker"><span class="sticker-icon">✳</span><strong>Local looks<br>good on
+                                you.</strong></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about-section section-pad" id="about">
+                <div class="shell about-layout">
+                    <div class="about-icon">✳</div>
+                    <div><span class="eyebrow">A BETTER WAY TO DISCOVER</span>
+                        <h2>One place. Local businesses.<br><i>Easy to find.</i></h2>
+                    </div>
+                    <p>Great businesses deserve to be found. Search by place, specialty, and language to discover the
+                        independent people and places around you.</p>
+                </div>
+            </section>
+
+            <section class="contact-section" id="contact">
+                <div class="shell contact-layout">
+                    <div><span class="eyebrow">GET IN TOUCH</span>
+                        <h2>Questions about the directory?</h2>
+                    </div>
+                    <p>This is a static preview without a live inbox. Contact information will be available when the
+                        directory is connected to a real service.</p>
+                </div>
+            </section>
+
+            <section class="owner-section section-pad">
+                <div class="shell owner-layout">
+                    <div><span class="eyebrow light">FOR THE PEOPLE BEHIND THE BUSINESS</span>
+                        <h2>Own a local business?<br><i>Get discovered.</i></h2>
+                        <p>Make it easier for your neighbors to find what you do. Submit your business for
+                            consideration.</p><a href="#add" class="owner-button">Add your business <span
+                                aria-hidden="true">↗</span></a>
+                    </div><span class="owner-decoration" aria-hidden="true">N.</span>
+                </div>
+            </section>
+        </div>
+
+        <section id="results-view" class="view shell" hidden>
+            <div class="page-intro"><span class="eyebrow">DISCOVER WHAT'S NEAR</span>
+                <h1>Find your kind of local<span class="accent-dot">.</span></h1>
+                <p>Good people. Great work. Right where you need them.</p>
+            </div>
+            <form id="results-search" class="results-search"><label><span>STATE</span><select name="state" data-state>
+                        <option value="">All states</option>
+                    </select></label><label><span>CITY / TOWN / ZIP</span><input name="city" type="search"
+                        list="city-options" placeholder="Any city or ZIP"></label><label><span>DISTANCE</span><select
+                        name="distance">
+                        <option value="">Any distance</option>
+                        <option value="5">Within 5 miles</option>
+                        <option value="10">Within 10 miles</option>
+                        <option value="25">Within 25 miles</option>
+                        <option value="50">Within 50 miles</option>
+                        <option value="100">Within 100 miles</option>
+                        <option value="100+">100+ miles</option>
+                    </select></label><label><span>BUSINESS TYPE</span><input name="category" type="search"
+                        list="category-options" placeholder="All categories"></label><label><span>LANGUAGE</span><input
+                        name="language" type="search" list="language-options" placeholder="Any language"></label><button
+                    type="submit" class="search-button">Search <span aria-hidden="true">→</span></button></form>
+            <div class="results-toolbar">
+                <div><strong id="results-count">Businesses</strong><span id="results-context"></span></div>
+                <div class="toolbar-actions"><button type="button" class="mobile-filter-button" id="filter-toggle"
+                        aria-expanded="false">☷ Filters</button>
+                    <div class="view-switch" role="group" aria-label="View mode"><button type="button" id="list-toggle"
+                            class="active" aria-pressed="true">☷ List</button><button type="button" id="map-toggle"
+                            aria-pressed="false">⌖ Map</button></div><label class="sort-field">Sort <select
+                            id="sort-select">
+                            <option value="recommended">Recommended</option>
+                            <option value="distance">Distance</option>
+                            <option value="rating">Highest rated</option>
+                            <option value="reviews">Most reviewed</option>
+                            <option value="newest">Newest businesses</option>
+                            <option value="alphabetical">Alphabetical</option>
+                        </select></label>
+                </div>
+            </div>
+            <div class="results-layout">
+                <aside class="filter-sidebar" id="filter-sidebar">
+                    <div class="filter-title">
+                        <h2>Filters</h2><button type="button" class="clear-button" id="clear-filters">Clear all</button>
+                    </div><label class="filter-label">Subcategory<input id="subcategory-filter" type="search"
+                            placeholder="e.g. Wedding photography"></label><label class="filter-label">Minimum
+                        rating<select id="rating-filter">
+                            <option value="">Any rating</option>
+                            <option value="4">4 stars & up</option>
+                            <option value="4.5">4.5 stars & up</option>
+                        </select></label>
+                    <div class="filter-group"><span>Business details</span><label><input type="checkbox"
+                                id="open-filter"> Open now</label><label><input type="checkbox" id="verified-filter">
+                            Verified business</label><label><input type="checkbox" id="women-filter">
+                            Women-owned</label><label><input type="checkbox" id="family-filter">
+                            Family-owned</label><label><input type="checkbox" id="local-filter"> Locally
+                            owned</label><label><input type="checkbox" id="online-filter"> Online
+                            services</label><label><input type="checkbox" id="person-filter"> In-person services</label>
+                    </div><button type="button" class="apply-filters" id="apply-filters">Show businesses</button>
+                </aside>
+                <div class="results-main">
+                    <div id="results-list" class="results-grid"></div>
+                    <div id="map-panel" class="map-panel" hidden></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="profile-view" class="view shell" hidden></section>
+        <section id="add-view" class="view shell" hidden></section>
+    </main>
+    <footer class="site-footer">
+        <div class="shell footer-top">
+            <div><a class="brand footer-brand" href="#home"><span class="brand-mark">N<span
+                            class="brand-dot">.</span></span><span>near <em>&</em> here</span></a>
+                <p>Find your people. Find your place.<br>Find it local.</p>
+            </div>
+            <div class="footer-links">
+                <div><strong>Explore</strong><a href="#find">Find businesses</a><a href="#categories">Categories</a><a
+                        href="#locations">Cities & states</a></div>
+                <div><strong>For business</strong><a href="#add">Add your business</a><a href="#about">About us</a><a
+                        href="#contact">Contact</a></div>
+            </div>
+        </div>
+        <div class="shell footer-bottom"><span>© 2026 Near & Here. Made for the places we call
+                home.</span><span>Independent by nature. Local by heart.</span></div>
+    </footer>
+    <datalist id="city-options"></datalist><datalist id="category-options"></datalist><datalist
+        id="language-options"></datalist>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+
+</html>
